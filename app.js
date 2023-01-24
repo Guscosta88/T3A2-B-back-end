@@ -1,5 +1,6 @@
 import express from 'express'
 import { ParticipantModel, FoodModel, BeverageModel } from './db.js'
+import participantRoutes from './routes/participant_routes.js'
 import cors from 'cors'
 
 const app = express()
@@ -15,6 +16,8 @@ app.get('/participants', async (req, res) => res.send(await ParticipantModel.fin
 app.get('/foods', async (req, res) => res.send(await FoodModel.find()))
 
 app.get('/beverages', async (req, res) => res.send(await BeverageModel.find()))
+
+app.use('/participants', participantRoutes)
 
 export default app
 

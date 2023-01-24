@@ -11,7 +11,7 @@ async function dbClose() {
 }
 
 try {
-    const a = await mongoose.connect(process.env.Atlas_DB_URL)
+    const a = await mongoose.connect(process.env.ATLAS_DB_URL)
     console.log(a.connection.readyState === 1 ? 'Mongoose Connected' : 'Mongoose failed not connected')
 }
 catch (err) {
@@ -28,7 +28,7 @@ const ParticipantModel = mongoose.model('Participant', participantSchema)
 
 const foodSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    quantity: {type: Decimal128, required: true},
+    quantity: {type: mongoose.Decimal128, required: true},
     cont_meat: {type: String, required: true}
 })
 
@@ -36,7 +36,7 @@ const FoodModel = mongoose.model('Food', foodSchema)
 
 const beverageSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    quantity: {type: Int32, required: true}
+    quantity: {type: mongoose.Int32, required: true}
 })
 
 const BeverageModel = mongoose.model('Beverage', beverageSchema)
