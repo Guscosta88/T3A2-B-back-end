@@ -36,7 +36,7 @@ const FoodModel = mongoose.model('Food', foodSchema)
 
 const beverageSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    quantity: {type: mongoose.Int32, required: true}
+    quantity: {type: Number, required: true}
 })
 
 const BeverageModel = mongoose.model('Beverage', beverageSchema)

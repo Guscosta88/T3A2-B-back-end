@@ -3,11 +3,11 @@ import { ParticipantModel, FoodModel, BeverageModel } from '../db.js'
 
 const router = express.Router()
 
-router.get('/', async (req, res) => res.send(await ParticipantModel.find().populate({ path: 'beverage', select: '_id'})))
+router.get('/', async (req, res) => res.send(await ParticipantModel.find().populate({ path: 'drink_id', select: '_id'})))
 
 router.get('/:id', async (req, res) => {
     try {
-        const participant =  await ParticipantModel.findById(req.params.id).populate({ path: 'beverage', select: '_id' })
+        const participant =  await ParticipantModel.findById(req.params.id).populate({ path: 'drink_id', select: '_id' })
         if(participant) {
             res.send(participant)
         } else {
