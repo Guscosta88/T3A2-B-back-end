@@ -5,7 +5,6 @@ describe("App tests", () => {
     test('Get Home Page', async () => {
     const res = await request(app).get('/')
     expect(res.status).toBe(200)
-    // expect(res.headers['content-type']).toMatch(/json/i)
     expect(res.body.info).toBeDefined()
     expect(res.body.info).toBe('Barbecue Planner API')
 })
