@@ -15,7 +15,19 @@ app.get('/participants', async (req, res) => res.send(await ParticipantModel.fin
 
 app.get('/foods', async (req, res) => res.send(await FoodModel.find()))
 
-app.get('/beverages', async (req, res) => res.send(await BeverageModel.find()))
+app.get('/beverages', async (req, res) => {
+    const name = req.query.name;
+    if (name) {
+        const beverage = await BeverageModel.findOne({ name });
+        if (beverage) {
+            res.send(beverage);
+        } else {
+            res.status(404).send({ error: 'Beverage Not Found' });
+        }
+    } else {
+        res.send(await BeverageModel.find());
+    }
+});
 
 app.use('/participants', participantRoutes)
 
