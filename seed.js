@@ -30,10 +30,13 @@ await ParticipantModel.insertMany(participants)
 console.log('Inserted participants')
 
 const foods = [
-    {name: 'Beef', quantity: 0.3, cont_meat: 'Yes'},
-    {name: 'Sausage', quantity: 0.3, cont_meat: 'Yes'},
-    {name: 'Potato Salad', quantity: 0.3, cont_meat: 'No'},
-    {name: 'Veg Sausage', quantity: 0.3, cont_meat: 'No'}
+    {name: 'Beef', quantity: 0.3, unit: 'kg', cont_meat: 'Yes'},
+    {name: 'Wings', quantity: 0.2, unit: 'kg', cont_meat: 'Yes'},
+    {name: 'Sausage', quantity: 2, unit: 'un', cont_meat: 'Yes'},
+    {name: 'Bread', quantity: 2, unit: 'un', cont_meat: 'No'},
+    {name: 'Potato Salad', quantity: 0.2, unit: 'tray', cont_meat: 'No'},
+    {name: 'Haloumi', quantity: 0.2, unit: 'kg', cont_meat: 'No'},
+    {name: 'Veg Sausage', quantity: 2, unit: 'un', cont_meat: 'No'}
 ]
 
 await FoodModel.insertMany(foods)

@@ -29,6 +29,7 @@ const ParticipantModel = mongoose.model('Participant', participantSchema)
 const foodSchema = new mongoose.Schema({
     name: {type: String, required: true},
     quantity: {type: Number, required: true},
+    unit: {type: String, required: true},
     cont_meat: {type: String, required: true}
 })
 
